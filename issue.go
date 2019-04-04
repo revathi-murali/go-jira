@@ -137,6 +137,7 @@ type IssueFields struct {
 	AggregateTimeOriginalEstimate int           `json:"aggregatetimeoriginalestimate,omitempty" structs:"aggregatetimeoriginalestimate,omitempty"`
 	AggregateTimeSpent            int           `json:"aggregatetimespent,omitempty" structs:"aggregatetimespent,omitempty"`
 	AggregateTimeEstimate         int           `json:"aggregatetimeestimate,omitempty" structs:"aggregatetimeestimate,omitempty"`
+	DevTeam                       DevTeam       `json:"issuetype,omitempty" structs:"issuetype,omitempty"`
 	Unknowns                      tcontainer.MarshalMap
 }
 
@@ -260,6 +261,14 @@ type AvatarUrls struct {
 // Component represents a "component" of a JIRA issue.
 // Components can be user defined in every JIRA instance.
 type Component struct {
+	Self string `json:"self,omitempty" structs:"self,omitempty"`
+	ID   string `json:"id,omitempty" structs:"id,omitempty"`
+	Name string `json:"name,omitempty" structs:"name,omitempty"`
+}
+
+// DevTeam represents the team to which the JIRA issue belongs to
+// DevTeam can be user defined in every JIRA instance.
+type DevTeam struct {
 	Self string `json:"self,omitempty" structs:"self,omitempty"`
 	ID   string `json:"id,omitempty" structs:"id,omitempty"`
 	Name string `json:"name,omitempty" structs:"name,omitempty"`
